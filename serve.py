@@ -8,6 +8,12 @@ import errno
 
 
 class SiteHandler(SimpleHTTPRequestHandler):
+    def end_headers(self):
+        # Without this, browsers heuristically cache files that haven't changed in a while
+        # and keep running stale app.js / styles.css after edits.
+        self.send_header('Cache-Control', 'no-cache')
+        super().end_headers()
+
     def log_message(self, format, *args):
         # Request logging to stderr can fail when a launcher closes its pipe.
         pass

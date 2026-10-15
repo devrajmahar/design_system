@@ -261,5 +261,46 @@ async function runChecks() {
 }
 $('#rerun-checks')?.addEventListener('click', runChecks);
 
+$$('.ui-dropdown').forEach(dropdown => {
+  const trigger = $('[aria-haspopup="menu"]', dropdown);
+  const menu = $('[role="menu"]', dropdown);
+  const items = $$('[role="menuitem"]', menu);
+  const isOpen = () => !menu.hidden;
+  menu.tabIndex = -1;
+  function open(focusIndex) {
+    menu.hidden = false;
+    trigger.setAttribute('aria-expanded', 'true');
+    if (focusIndex === undefined) menu.focus({ preventScroll: true });
+    else items.at(focusIndex)?.focus();
+  }
+  function close(returnFocus) {
+    if (!isOpen()) return;
+    menu.hidden = true;
+    trigger.setAttribute('aria-expanded', 'false');
+    if (returnFocus) trigger.focus();
+  }
+  trigger.addEventListener('click', () => (isOpen() ? close() : open()));
+  trigger.addEventListener('keydown', event => {
+    if (event.key === 'ArrowDown') { event.preventDefault(); open(0); }
+    if (event.key === 'ArrowUp') { event.preventDefault(); open(-1); }
+  });
+  menu.addEventListener('keydown', event => {
+    const index = items.indexOf(document.activeElement);
+    if (event.key === 'ArrowDown') { event.preventDefault(); items[(index + 1) % items.length].focus(); }
+    else if (event.key === 'ArrowUp') { event.preventDefault(); items.at(index < 0 ? -1 : index - 1).focus(); }
+    else if (event.key === 'Home') { event.preventDefault(); items[0].focus(); }
+    else if (event.key === 'End') { event.preventDefault(); items.at(-1).focus(); }
+    else if (event.key === 'Escape') { event.preventDefault(); close(true); }
+    else if (event.key === 'Tab') close();
+    else if ((event.key === 'Enter' || event.key === ' ') && index >= 0) { event.preventDefault(); close(true); }
+  });
+  items.forEach(item => {
+    item.addEventListener('click', () => close(true));
+    item.addEventListener('pointermove', () => item.focus({ preventScroll: true }));
+    item.addEventListener('pointerleave', () => menu.focus({ preventScroll: true }));
+  });
+  document.addEventListener('pointerdown', event => { if (!dropdown.contains(event.target)) close(); });
+});
+
 updateEditor();
 applyTheme();
