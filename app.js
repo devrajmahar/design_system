@@ -157,7 +157,7 @@ if (dashboard) {
       const active = other === button;
       other.classList.toggle('bg-hover-bg', active);
       other.classList.toggle('font-medium', active);
-      other.classList.toggle('text-text-primary', active);
+      other.classList.toggle('text-text-default', active);
       other.classList.toggle('text-text-secondary', !active);
       const svg = other.querySelector('svg');
       svg?.classList.toggle('text-icon-active', active);
