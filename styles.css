@@ -3,24 +3,32 @@
 
 [data-panel][hidden] { display: none !important; }
 
-/* On wide screens the Live CSS editor docks to the right edge at full height, so the
-   previews stay in view while tokens are edited. Narrow screens keep it below the previews. */
-@media (min-width: 1100px) {
-  body { --editor-dock-width: clamp(420px, 32vw, 600px); padding-right: var(--editor-dock-width); }
-  #editor {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 50;
+/* On wide screens the Live CSS editor is a panel beside the previews, in the same content
+   area, and stays in view while the previews scroll. Narrow screens keep it below them. */
+@media (min-width: 1280px) {
+  header > div,
+  main {
+    max-width: 1920px;
+  }
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(460px, 38%, 720px);
+    column-gap: 1.5rem;
+    align-items: start;
+  }
+  main > * { grid-column: 1 / -1; }
+  main > #static-previews { grid-column: 1; grid-row: 3; min-width: 0; }
+  main > #editor {
+    grid-column: 2;
+    grid-row: 3;
+    position: sticky;
+    top: 5rem;
     display: flex;
     flex-direction: column;
-    width: var(--editor-dock-width);
-    border-width: 0 0 0 var(--border-width, 1px);
-    border-radius: 0;
+    height: calc(100vh - 6.5rem);
   }
   #editor > .editor-body { display: flex; flex: 1; min-height: 0; }
-  #editor .editor-pane { flex: 1; min-height: 0; }
+  #editor .editor-pane { flex: 1; min-width: 0; min-height: 0; }
   #editor .editor-pane > textarea { height: 100%; min-height: 0; resize: none; }
   #editor .editor-token-map { display: none; }
 }
