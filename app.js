@@ -209,6 +209,82 @@ if (book) {
   }, 1400);
 }
 
+const ticket = $('[data-trading-panel]');
+if (ticket) {
+  const TICK_VALUE = 12.5;
+  const qtyInput = $('[data-ticket-qty]', ticket);
+  const positionRow = $('[data-ticket-position]', ticket);
+  const openQty = $('[data-ticket-open-qty]', ticket);
+  const pnlValue = $('[data-ticket-pnl]', ticket);
+  const dailyValue = $('[data-ticket-daily]', ticket);
+  const status = $('[data-ticket-status]', ticket);
+  const ocoSwitch = $('[data-ticket-oco]', ticket);
+  const ocoFields = $('[data-ticket-oco-fields]', ticket);
+  const ticksInput = $('[data-ticket-ticks]', ticket);
+  let position = -1;
+  let pnl = 12.5;
+  let daily = 0;
+  let working = 0;
+  const quantity = () => Math.max(1, Math.floor(Number(qtyInput.value)) || 1);
+  const money = value => `${value.toFixed(2)} $`;
+  const sign = value => (value > 0 ? 'positive' : value < 0 ? 'negative' : 'zero');
+  function render(message) {
+    openQty.textContent = String(position);
+    positionRow.dataset.position = position > 0 ? 'long' : position < 0 ? 'short' : 'flat';
+    pnlValue.textContent = money(pnl);
+    pnlValue.dataset.sign = sign(pnl);
+    dailyValue.textContent = money(daily);
+    dailyValue.dataset.sign = sign(daily);
+    const side = position > 0 ? `Long ${position}` : position < 0 ? `Short ${-position}` : 'Flat';
+    const orders = working ? `${working} working order${working === 1 ? '' : 's'}` : 'no working orders';
+    status.textContent = message ? `${message} · ${orders}` : `${side} · ${orders}`;
+  }
+  function close() {
+    daily += pnl;
+    pnl = 0;
+    position = 0;
+  }
+  $$('[data-step]', ticket).forEach(button => button.addEventListener('click', () => {
+    qtyInput.value = String(Math.max(1, quantity() + Number(button.dataset.step)));
+  }));
+  qtyInput.addEventListener('change', () => { qtyInput.value = String(quantity()); });
+  $('[data-ticket-ticks-toggle]', ticket).addEventListener('change', event => { ticksInput.disabled = !event.target.checked; });
+  ocoSwitch.addEventListener('click', () => {
+    const on = ocoSwitch.getAttribute('aria-checked') !== 'true';
+    ocoSwitch.setAttribute('aria-checked', String(on));
+    ocoFields.disabled = !on;
+  });
+  $$('[data-side]', ticket).forEach(button => button.addEventListener('click', () => {
+    const qty = quantity();
+    const side = button.dataset.side === 'buy' ? 'Buy' : 'Sell';
+    if (button.dataset.order !== 'MKT') {
+      working += 1;
+      render(`Working ${side} ${button.dataset.order} ${qty}`);
+      return;
+    }
+    const next = position + (side === 'Buy' ? qty : -qty);
+    if (Math.sign(next) !== Math.sign(position)) close();
+    position = next;
+    render(`Filled ${side} MKT ${qty}`);
+  }));
+  $('[data-ticket-action="cancel"]', ticket).addEventListener('click', () => {
+    const cancelled = working;
+    working = 0;
+    render(cancelled ? `Cancelled ${cancelled}` : 'Nothing to cancel');
+  });
+  $('[data-ticket-action="flat"]', ticket).addEventListener('click', () => {
+    working = 0;
+    close();
+    render('Flattened');
+  });
+  setInterval(() => {
+    if (!position || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    pnl += position * Math.round(Math.random() * 2 - 1) * TICK_VALUE;
+    pnlValue.textContent = money(pnl);
+    pnlValue.dataset.sign = sign(pnl);
+  }, 1600);
+}
+
 let checksStarted = false;
 async function runChecks() {
   checksStarted = true;

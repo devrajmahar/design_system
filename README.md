@@ -27,6 +27,6 @@ You can also place these files on any static host. Keep `index.html`, `styles.cs
 - Edit the CSS variables in the **Live CSS editor** to preview changes immediately, then use **Copy CSS** to save them.
 - To change the starting theme for everyone, edit the `:root` and `.dark` rules in the `#live-theme` style and `#theme-css` textarea in `index.html` together. The textarea contains the editor's reset value.
 - `styles.css` contains the compiled utility styles and component rules from the previous Tailwind setup. It is committed, so running the site needs no build step. Edit this file directly when changing component styles or adding utility classes.
-- `app.js` handles tabs, the light/dark toggle, editor, form, icons, dashboard navigation, and order book. `brand-checks.js` validates the included brand assets.
+- `app.js` handles tabs, the light/dark toggle, editor, form, icons, dashboard navigation, order book, and trading panel. `brand-checks.js` validates the included brand assets.
 
 Brand asset guidance is in [brand-assets/usage.md](brand-assets/usage.md).
