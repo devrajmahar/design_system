@@ -340,7 +340,8 @@ $('#rerun-checks')?.addEventListener('click', runChecks);
 $$('.ui-dropdown').forEach(dropdown => {
   const trigger = $('[aria-haspopup="menu"]', dropdown);
   const menu = $('[role="menu"]', dropdown);
-  const items = $$('[role="menuitem"]', menu);
+  const items = $$('[role^="menuitem"]', menu);
+  const label = $('[data-popup-label]', trigger);
   const isOpen = () => !menu.hidden;
   menu.tabIndex = -1;
   function open(focusIndex) {
@@ -348,6 +349,19 @@ $$('.ui-dropdown').forEach(dropdown => {
     trigger.setAttribute('aria-expanded', 'true');
     if (focusIndex === undefined) menu.focus({ preventScroll: true });
     else items.at(focusIndex)?.focus();
+  }
+  // Returns whether choosing the item should close the menu; checkbox items stay open for more toggles.
+  function choose(item) {
+    const role = item.getAttribute('role');
+    if (role === 'menuitemcheckbox') {
+      item.setAttribute('aria-checked', String(item.getAttribute('aria-checked') !== 'true'));
+      return false;
+    }
+    if (role === 'menuitemradio') {
+      $$('[role="menuitemradio"]', item.closest('[role="group"]')).forEach(other => other.setAttribute('aria-checked', String(other === item)));
+      if (label) label.textContent = $$('[role="menuitemradio"][aria-checked="true"]', menu).map(other => other.dataset.value).join(' · ');
+    }
+    return true;
   }
   function close(returnFocus) {
     if (!isOpen()) return;
@@ -368,10 +382,10 @@ $$('.ui-dropdown').forEach(dropdown => {
     else if (event.key === 'End') { event.preventDefault(); items.at(-1).focus(); }
     else if (event.key === 'Escape') { event.preventDefault(); close(true); }
     else if (event.key === 'Tab') close();
-    else if ((event.key === 'Enter' || event.key === ' ') && index >= 0) { event.preventDefault(); close(true); }
+    else if ((event.key === 'Enter' || event.key === ' ') && index >= 0) { event.preventDefault(); if (choose(items[index])) close(true); }
   });
   items.forEach(item => {
-    item.addEventListener('click', () => close(true));
+    item.addEventListener('click', () => { if (choose(item)) close(true); });
     item.addEventListener('pointermove', () => item.focus({ preventScroll: true }));
     item.addEventListener('pointerleave', () => menu.focus({ preventScroll: true }));
   });
