@@ -49,7 +49,7 @@ Everything in `icons/` is pre-generated and included with this static site. Keep
 These are **not** plain scaled copies of the SVG. At small sizes the source geometry lands between pixels (e.g. 4.4 px) and blurs, so the script rebuilds the mark per size with the square edges and arrow bars snapped to whole pixels. Rules:
 
 - **Pick the exact pixel size: display size × device pixel ratio.** A 16 px icon on a 125 % screen needs `favicon-20.png`. Use `srcset` with 1x / 1.25x / 1.5x / 2x candidates. Never let the browser stretch a smaller file up.
-- **The favicon's square is the dark-theme surface colour** (`--surface` in `.dark`, currently `#171717`), not the source mark's near-black `#0A0A0A`. If that token changes, update and regenerate the favicon set to match.
+- **The favicon's square is `#171717` on purpose.** It is the old dark-theme surface, not the current `.dark` `--surface` (`#000000`) and not the source mark's near-black `#0A0A0A`. A pure-black square would disappear into dark browser tabs and dark search themes. Do not change it to follow `--surface`.
 - **The favicon's arrow is filled solid white, not cut out.** DuckDuckGo, dark search themes and dark browser tabs draw favicons with nothing behind them. A cut-out arrow would show the dark page and the icon would vanish. On light backgrounds the filled version looks identical to the source mark. Never regenerate the favicon from `logomark-dark.svg` directly.
 - One ICO can't switch themes, so the ICO and PNGs are the dark-square version: readable on light and dark. Only `favicon.svg` switches (Safari ignores it).
 
