@@ -66,7 +66,7 @@ function updateEditor() {
 textarea.addEventListener('input', updateEditor);
 textarea.addEventListener('scroll', () => { gutter.scrollTop = textarea.scrollTop; });
 editorButtons.find(el => el.textContent.includes('Reset'))?.addEventListener('click', () => {
-  textarea.value = defaultCss;
+  textarea.value = presetCss;
   updateEditor();
 });
 const copyButton = editorButtons.find(el => el.textContent.includes('Copy CSS'));
@@ -80,6 +80,36 @@ copyButton?.addEventListener('click', async () => {
     textarea.focus();
     textarea.select();
   }
+});
+
+// Presets live in themes/<id>.css with the same :root / .dark token blocks as the default.
+// Loading one replaces the editor contents, so the editor stays the only source of live tokens.
+const presetSelect = $('#theme-preset');
+const PRESET_KEY = 'theme-studio-preset';
+let presetCss = defaultCss;
+let presetRequest = 0;
+async function loadPreset(id) {
+  const request = ++presetRequest;
+  let css = defaultCss;
+  if (id !== 'default') {
+    const response = await fetch(`/themes/${encodeURIComponent(id)}.css`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    css = await response.text();
+  }
+  if (request !== presetRequest) return;
+  presetCss = css;
+  textarea.value = css;
+  presetSelect.value = id;
+  document.documentElement.dataset.themePreset = id;
+  updateEditor();
+}
+presetSelect?.addEventListener('change', () => {
+  const id = presetSelect.value;
+  const previous = document.documentElement.dataset.themePreset || 'default';
+  loadPreset(id).then(() => localStorage.setItem(PRESET_KEY, id), error => {
+    console.error(`Theme preset "${id}" could not load: ${error.message}`);
+    presetSelect.value = previous;
+  });
 });
 
 function refreshTokenValues() {
@@ -394,3 +424,7 @@ $$('.ui-dropdown').forEach(dropdown => {
 
 updateEditor();
 applyTheme();
+const savedPreset = localStorage.getItem(PRESET_KEY);
+if (presetSelect && savedPreset && savedPreset !== 'default' && $(`option[value="${CSS.escape(savedPreset)}"]`, presetSelect)) {
+  loadPreset(savedPreset).catch(error => console.error(`Theme preset "${savedPreset}" could not load: ${error.message}`));
+}

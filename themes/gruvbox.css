@@ -1,0 +1,230 @@
+/* Gruvbox theme preset. Gruvbox Light and Gruvbox Dark (medium), from morhetz/gruvbox.
+   Same tokens as the default theme; only the values differ. */
+:root {
+  /* Surfaces */
+  --surface: #fbf1c7;
+  --surface-secondary: #f2e5bc;
+
+  /* Borders */
+  --border: #3c383633;
+  --border-secondary: #3c383633;
+  --border-subtle: #3c383612;
+  --border-width: 1px;
+
+  /* Text */
+  --text-default: #3c3836;
+  --text-secondary: #3c383694;
+  --text-muted: #3c383640;
+  --text-positive: var(--positive);
+  --text-negative: var(--negative);
+  --text-danger: var(--danger);
+  --text-warning: #af3a03;
+  /* Text on interactive items (buttons, tabs, links). Keep these values in
+     step with --icon / --icon-active: normal text = normal icon colour,
+     hover/active text = active icon colour. They are separate tokens on
+     purpose, never point one at the other. */
+  --text-interactive: #3c383694;
+  --text-hover: #3c3836;
+  --text-active: #3c3836;
+
+  /* Interaction states — hover / selected fill, pressed fill, disabled fill. */
+  --hover-bg: #3c383614;
+  --active-bg: #3c38361f;
+  --disabled-bg: #3c38360d;
+
+  /* Icons — normal and hovered/pressed/selected */
+  --icon: #3c383694;
+  --icon-active: #3c3836;
+
+  /* Status — gains / losses, success / failure. Shared with the main platform. */
+  --positive: #79740e;
+  --positive-subtle: #e8deab;
+  --negative: #9d0006;
+  --negative-subtle: #edcdaa;
+  --warning: #af3a03;
+  --warning-subtle: #f0d6aa;
+  --indigo: #427b58;
+  --indigo-subtle: #dfdfb6;
+  --purple: #8f3f71;
+  --purple-subtle: #ebd6ba;
+
+  /* Actions */
+  --primary: #076678;
+  --primary-hover: color-mix(in srgb, var(--primary) 80%, transparent);
+  --primary-active: #05505e;
+  --primary-disabled: color-mix(in srgb, var(--primary) 30%, var(--surface));
+  --primary-disabled-foreground: color-mix(in srgb, var(--primary) 65%, var(--surface));
+  --primary-subtle: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  --primary-foreground: #ffffff;
+  --danger: #9d0006;
+  --danger-hover: #8d0005;
+  --danger-disabled: #dfa98d;
+  --danger-disabled-foreground: #c76c5d;
+  --danger-ring: #dfa98d;
+  --danger-foreground: #ffffff;
+  --warning-hover: #9a3303;
+  --warning-foreground: #ffffff;
+
+  /* Buttons — neutral default button */
+  --button-fill: #3c3836f2;
+  --button-fill-hover: #3c3836d9;
+  --button-fill-active: #3c3836c2;
+  --button-fill-foreground: #fbf1c7f2;
+  --button-fill-subtle: #3c383614;
+
+  /* Trade — dedicated buy / sell buttons. Hover and press darken the fill; no shadows. */
+  --buy: var(--primary);
+  --buy-hover: var(--primary-hover);
+  --buy-active: var(--primary-active);
+  --buy-disabled: var(--primary-disabled);
+  --buy-disabled-foreground: var(--primary-disabled-foreground);
+  --buy-foreground: var(--primary-foreground);
+  --sell: #9d0006;
+  --sell-hover: #8d0005;
+  --sell-active: #7a0005;
+  --sell-disabled: #dfa98d;
+  --sell-disabled-foreground: #c76c5d;
+  --sell-foreground: #ffffff;
+  /* Tinted buy / sell for resting order types (limit, stop). */
+  --buy-subtle: color-mix(in srgb, var(--buy) 12%, var(--surface));
+  --buy-subtle-hover: color-mix(in srgb, var(--buy) 20%, var(--surface));
+  --buy-subtle-active: color-mix(in srgb, var(--buy) 28%, var(--surface));
+  --buy-subtle-foreground: color-mix(in srgb, var(--buy) 70%, #000000);
+  --sell-subtle: color-mix(in srgb, var(--sell) 12%, var(--surface));
+  --sell-subtle-hover: color-mix(in srgb, var(--sell) 20%, var(--surface));
+  --sell-subtle-active: color-mix(in srgb, var(--sell) 28%, var(--surface));
+  --sell-subtle-foreground: color-mix(in srgb, var(--sell) 70%, #000000);
+
+  /* Order book — depth-bar fills, the price text beside them, and the text drawn on top of a fill. */
+  --book-bid-fill: color-mix(in srgb, var(--primary) 40%, var(--surface));
+  --book-bid-text: var(--primary);
+  --book-ask-fill: color-mix(in srgb, var(--sell) 40%, var(--surface));
+  --book-ask-text: color-mix(in srgb, var(--sell) 75%, #000000);
+  --book-fill-text: #3c3836;
+
+  /* Focus */
+  --ring-primary: var(--primary);
+
+  /* Radius */
+  --radius-small: 4px;
+  --radius-compact: 6px;
+  --radius-default: 8px;
+  --radius-medium: 14px;
+  --radius-large: 999px;
+
+  /* Chart */
+  --bullish: var(--positive);
+  --bearish: var(--negative);
+  /* Big-trade bubble fills; the bubble outline uses bullish / bearish. */
+  --buy-bubble: color-mix(in srgb, var(--positive) 35%, transparent);
+  --sell-bubble: color-mix(in srgb, var(--negative) 35%, transparent);
+}
+
+.dark {
+  /* Surfaces */
+  --surface: #282828;
+  --surface-secondary: #32302f;
+
+  /* Borders */
+  --border: #43413b;
+  --border-secondary: #575349;
+  --border-subtle: #ebdbb212;
+  --border-width: 1px;
+
+  /* Text */
+  --text-default: #ebdbb2;
+  --text-secondary: #ebdbb29e;
+  --text-muted: #ebdbb261;
+  --text-positive: var(--positive);
+  --text-negative: var(--negative);
+  --text-danger: #f6755a;
+  --text-warning: #f9973f;
+  --text-interactive: #ebdbb29e;
+  --text-hover: #ebdbb2;
+  --text-active: #ebdbb2;
+
+  /* Interaction states */
+  --hover-bg: #ebdbb21f;
+  --active-bg: #ebdbb229;
+  --disabled-bg: #ebdbb20d;
+
+  /* Icons */
+  --icon: #ebdbb29e;
+  --icon-active: #ebdbb2;
+
+  /* Status — gains / losses, success / failure. Shared with the main platform. */
+  --positive: #b8bb26;
+  --positive-subtle: #484828;
+  --negative: #fb4934;
+  --negative-subtle: #562f2b;
+  --warning: #fe8019;
+  --warning-subtle: #573b25;
+  --indigo: #8ec07c;
+  --indigo-subtle: #3e493a;
+  --purple: #d3869b;
+  --purple-subtle: #4e3d41;
+
+  /* Actions */
+  --primary: #83a598;
+  --primary-hover: color-mix(in srgb, var(--primary) 80%, transparent);
+  --primary-active: #668177;
+  --primary-disabled: color-mix(in srgb, var(--primary) 35%, var(--surface));
+  --primary-disabled-foreground: color-mix(in srgb, var(--primary) 65%, white);
+  --primary-subtle: color-mix(in srgb, var(--primary) 22%, var(--surface));
+  --primary-foreground: #282828;
+  --danger: #fb4934;
+  --danger-hover: #fb5f4c;
+  --danger-disabled: #72342c;
+  --danger-disabled-foreground: #bc3f30;
+  --danger-ring: #b03324;
+  --danger-foreground: #282828;
+  --warning-hover: #fe8f35;
+  --warning-foreground: #282828;
+
+  /* Buttons — neutral default button */
+  --button-fill: #ebdbb2d9;
+  --button-fill-hover: #ebdbb2c2;
+  --button-fill-active: #ebdbb2ad;
+  --button-fill-foreground: #282828e6;
+  --button-fill-subtle: #ebdbb214;
+
+  /* Trade — dedicated buy / sell buttons. Hover and press brighten the fill; no shadows. */
+  --buy: var(--primary);
+  --buy-hover: var(--primary-hover);
+  --buy-active: var(--primary-active);
+  --buy-disabled: var(--primary-disabled);
+  --buy-disabled-foreground: var(--primary-disabled-foreground);
+  --buy-foreground: var(--primary-foreground);
+  --sell: #fb4934;
+  --sell-hover: #fb5f4c;
+  --sell-active: #fc7565;
+  --sell-disabled: #72342c;
+  --sell-disabled-foreground: #a73c2f;
+  --sell-foreground: #282828;
+  /* Tinted buy / sell for resting order types (limit, stop). */
+  --buy-subtle: color-mix(in srgb, var(--buy) 18%, var(--surface));
+  --buy-subtle-hover: color-mix(in srgb, var(--buy) 26%, var(--surface));
+  --buy-subtle-active: color-mix(in srgb, var(--buy) 34%, var(--surface));
+  --buy-subtle-foreground: color-mix(in srgb, var(--buy) 70%, #ffffff);
+  --sell-subtle: color-mix(in srgb, var(--sell) 18%, var(--surface));
+  --sell-subtle-hover: color-mix(in srgb, var(--sell) 26%, var(--surface));
+  --sell-subtle-active: color-mix(in srgb, var(--sell) 34%, var(--surface));
+  --sell-subtle-foreground: color-mix(in srgb, var(--sell) 70%, #ffffff);
+
+  /* Order book — depth-bar fills, the price text beside them, and the text drawn on top of a fill. */
+  --book-bid-fill: color-mix(in srgb, var(--primary) 35%, var(--surface));
+  --book-bid-text: color-mix(in srgb, var(--primary) 80%, #ffffff);
+  --book-ask-fill: color-mix(in srgb, var(--sell) 35%, var(--surface));
+  --book-ask-text: color-mix(in srgb, var(--sell) 85%, #ffffff);
+  --book-fill-text: #ebdbb2;
+
+  /* Focus */
+  --ring-primary: var(--primary);
+
+  /* Chart */
+  --bullish: var(--positive);
+  --bearish: var(--negative);
+  /* Big-trade bubble fills; the bubble outline uses bullish / bearish. */
+  --buy-bubble: color-mix(in srgb, var(--positive) 35%, transparent);
+  --sell-bubble: color-mix(in srgb, var(--negative) 35%, transparent);
+}

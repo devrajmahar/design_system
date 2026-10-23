@@ -461,3 +461,36 @@
 .ui-popup-stats div { display: flex; justify-content: space-between; gap: 8px; }
 .ui-popup-stats dt { color: var(--text-secondary); }
 .ui-popup-stats dd { margin: 0; font-weight: 500; font-variant-numeric: tabular-nums; }
+/* Theme preset picker in the header. Matches the 36px toggle button beside it. */
+.theme-picker { position: relative; display: inline-flex; }
+.theme-picker select {
+  height: 36px;
+  padding: 0 30px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-default);
+  background: var(--surface);
+  color: var(--text-default);
+  font-size: 14px;
+  line-height: 20px;
+  appearance: none;
+  outline: none;
+  transition: background-color 150ms;
+}
+.theme-picker select:hover { background-color: var(--hover-bg); }
+.theme-picker select:focus-visible { outline: 2px solid var(--ring-primary); outline-offset: 0; }
+.theme-picker option { background: var(--surface-secondary); color: var(--text-default); }
+.theme-picker::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--icon);
+  border-bottom: 1.5px solid var(--icon);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+@media (max-width: 39.98rem) {
+  .theme-picker select { max-width: 8rem; text-overflow: ellipsis; }
+}
