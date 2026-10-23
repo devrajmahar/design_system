@@ -73,12 +73,12 @@
   --button-fill-subtle: #0a0a0a14;
 
   /* Trade — dedicated buy / sell buttons. Hover and press darken the fill; no shadows. */
-  --buy: #089981;
-  --buy-hover: #07876f;
-  --buy-active: #056f5c;
-  --buy-disabled: #b3e3da;
-  --buy-disabled-foreground: #5cbfae;
-  --buy-foreground: #ffffff;
+  --buy: var(--primary);
+  --buy-hover: var(--primary-hover);
+  --buy-active: var(--primary-active);
+  --buy-disabled: var(--primary-disabled);
+  --buy-disabled-foreground: var(--primary-disabled-foreground);
+  --buy-foreground: var(--primary-foreground);
   --sell: #f7525f;
   --sell-hover: #e5404d;
   --sell-active: #c9303c;
@@ -189,12 +189,12 @@
   --button-fill-subtle: #fafafa14;
 
   /* Trade — dedicated buy / sell buttons. Hover and press brighten the fill; no shadows. */
-  --buy: #089981;
-  --buy-hover: #0aad92;
-  --buy-active: #0bc0a2;
-  --buy-disabled: #0f4a41;
-  --buy-disabled-foreground: #3f9e8e;
-  --buy-foreground: #ffffff;
+  --buy: var(--primary);
+  --buy-hover: var(--primary-hover);
+  --buy-active: var(--primary-active);
+  --buy-disabled: var(--primary-disabled);
+  --buy-disabled-foreground: var(--primary-disabled-foreground);
+  --buy-foreground: var(--primary-foreground);
   --sell: #f7525f;
   --sell-hover: #f96a75;
   --sell-active: #fb838c;
