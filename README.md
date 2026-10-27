@@ -35,6 +35,7 @@ The **Theme** picker in the header swaps the whole token set. The current Aeris 
 
 | Preset | File | Light / dark variants |
 | --- | --- | --- |
+| High Contrast | `themes/high-contrast.css` | Light / Pure black |
 | Tokyo Night | `themes/tokyo-night.css` | Day / Night |
 | Catppuccin | `themes/catppuccin.css` | Latte / Mocha |
 | GitHub | `themes/github.css` | Light / Dark |
