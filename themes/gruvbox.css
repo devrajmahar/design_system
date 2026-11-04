@@ -4,6 +4,7 @@
   /* Surfaces */
   --surface: #fbf1c7;
   --surface-secondary: #f2e5bc;
+  --surface-backdrop: #ebdbb2;
 
   /* Borders */
   --border: #3c383633;
@@ -124,6 +125,7 @@
   /* Surfaces */
   --surface: #282828;
   --surface-secondary: #32302f;
+  --surface-backdrop: #1d2021;
 
   /* Borders */
   --border: #43413b;
