@@ -169,11 +169,6 @@ if (iconPanel) {
       other.setAttribute('aria-pressed', String(active));
       other.classList.toggle('bg-active-bg', active);
       other.classList.toggle('bg-surface', !active);
-      other.classList.toggle('text-icon-active', active);
-      other.classList.toggle('text-icon', !active);
-      const svg = other.querySelector('svg');
-      svg?.classList.toggle('text-icon-active', active);
-      svg?.classList.toggle('text-icon', !active);
     });
     if (selectedLabel) selectedLabel.textContent = `${button.getAttribute('aria-label').replace('Hugeicons ', 'Hugeicons · ').replace('Solar Bold ', 'Solar Bold · ')}`;
   }));
@@ -189,9 +184,6 @@ if (dashboard) {
       other.classList.toggle('font-medium', active);
       other.classList.toggle('text-text-default', active);
       other.classList.toggle('text-text-secondary', !active);
-      const svg = other.querySelector('svg');
-      svg?.classList.toggle('text-icon-active', active);
-      svg?.classList.toggle('text-icon', !active);
     });
   }));
 }

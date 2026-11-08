@@ -20,22 +20,11 @@
   --text-negative: var(--negative);
   --text-danger: var(--danger);
   --text-warning: #cb4b16;
-  /* Text on interactive items (buttons, tabs, links). Keep these values in
-     step with --icon / --icon-active: normal text = normal icon colour,
-     hover/active text = active icon colour. They are separate tokens on
-     purpose, never point one at the other. */
-  --text-interactive: #586e7594;
-  --text-hover: #586e75;
-  --text-active: #586e75;
 
   /* Interaction states — hover / selected fill, pressed fill, disabled fill. */
   --hover-bg: #586e7514;
   --active-bg: #586e751f;
   --disabled-bg: #586e750d;
-
-  /* Icons — normal and hovered/pressed/selected */
-  --icon: #586e7594;
-  --icon-active: #586e75;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
   --positive: #859900;
@@ -141,18 +130,11 @@
   --text-negative: var(--negative);
   --text-danger: #c65351;
   --text-warning: #bd6039;
-  --text-interactive: #93a1a19e;
-  --text-hover: #93a1a1;
-  --text-active: #93a1a1;
 
   /* Interaction states */
   --hover-bg: #93a1a11f;
   --active-bg: #93a1a129;
   --disabled-bg: #93a1a10d;
-
-  /* Icons */
-  --icon: #93a1a19e;
-  --icon-active: #93a1a1;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
   --positive: #859900;
