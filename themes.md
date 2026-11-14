@@ -25,6 +25,8 @@ document.documentElement.classList.toggle('dark');      // light / dark
 
 Components pick the colours up through the variables, for example `background: var(--surface)`, `color: var(--text-default)` or `background: var(--primary)`.
 
+`--text-default` is for the main platform (the trading terminal). `--text-web-default` is for the website and landing pages. In Aeris dark it is a brighter `#ededed` instead of `#c1c1c1`; in every other block it matches `--text-default`. Icons use `currentColor`, so an icon takes the same colour as the text it sits in. `--text-secondary` and `--text-muted` are shared by both.
+
 Floating layers (menus, dialogs, tooltips) sit on `--surface-secondary` with a 1px `--border-secondary` edge in every theme.
 
 ## Themes
@@ -59,6 +61,7 @@ The default theme. It applies whenever no `data-theme` is set. Dark mode uses a 
 
   /* Text */
   --text-default: #0a0a0a;
+  --text-web-default: #0a0a0a;
   --text-secondary: #0a0a0a94;
   --text-muted: #0a0a0a40;
   --text-positive: #0b9981;
@@ -169,6 +172,7 @@ The default theme. It applies whenever no `data-theme` is set. Dark mode uses a 
 
   /* Text */
   --text-default: #c1c1c1;
+  --text-web-default: #ededed;
   --text-secondary: #fafafa8c;
   --text-muted: #fafafa59;
   --text-positive: #0b9981;
@@ -278,6 +282,7 @@ Day (light) and Night (dark).
 
   /* Text */
   --text-default: #3760bf;
+  --text-web-default: #3760bf;
   --text-secondary: #3760bf94;
   --text-muted: #3760bf40;
   --text-positive: var(--positive);
@@ -388,6 +393,7 @@ Day (light) and Night (dark).
 
   /* Text */
   --text-default: #c0caf5;
+  --text-web-default: #c0caf5;
   --text-secondary: #c0caf59e;
   --text-muted: #c0caf561;
   --text-positive: var(--positive);
@@ -497,6 +503,7 @@ Latte (light) and Mocha (dark).
 
   /* Text */
   --text-default: #4c4f69;
+  --text-web-default: #4c4f69;
   --text-secondary: #4c4f6994;
   --text-muted: #4c4f6940;
   --text-positive: var(--positive);
@@ -607,6 +614,7 @@ Latte (light) and Mocha (dark).
 
   /* Text */
   --text-default: #cdd6f4;
+  --text-web-default: #cdd6f4;
   --text-secondary: #cdd6f49e;
   --text-muted: #cdd6f461;
   --text-positive: var(--positive);
@@ -716,6 +724,7 @@ GitHub Light (light) and GitHub Dark (dark).
 
   /* Text */
   --text-default: #1f2328;
+  --text-web-default: #1f2328;
   --text-secondary: #1f232894;
   --text-muted: #1f232840;
   --text-positive: var(--positive);
@@ -826,6 +835,7 @@ GitHub Light (light) and GitHub Dark (dark).
 
   /* Text */
   --text-default: #e6edf3;
+  --text-web-default: #e6edf3;
   --text-secondary: #e6edf39e;
   --text-muted: #e6edf361;
   --text-positive: var(--positive);
@@ -935,6 +945,7 @@ Atom One Light (light) and One Dark Pro (dark).
 
   /* Text */
   --text-default: #383a42;
+  --text-web-default: #383a42;
   --text-secondary: #383a4294;
   --text-muted: #383a4240;
   --text-positive: var(--positive);
@@ -1045,6 +1056,7 @@ Atom One Light (light) and One Dark Pro (dark).
 
   /* Text */
   --text-default: #abb2bf;
+  --text-web-default: #abb2bf;
   --text-secondary: #abb2bf9e;
   --text-muted: #abb2bf61;
   --text-positive: var(--positive);
@@ -1154,6 +1166,7 @@ Alucard (light) and Dracula (dark).
 
   /* Text */
   --text-default: #1f1f1f;
+  --text-web-default: #1f1f1f;
   --text-secondary: #1f1f1f94;
   --text-muted: #1f1f1f40;
   --text-positive: var(--positive);
@@ -1264,6 +1277,7 @@ Alucard (light) and Dracula (dark).
 
   /* Text */
   --text-default: #f8f8f2;
+  --text-web-default: #f8f8f2;
   --text-secondary: #f8f8f29e;
   --text-muted: #f8f8f261;
   --text-positive: var(--positive);
@@ -1373,6 +1387,7 @@ Solarized Light (light) and Solarized Dark (dark).
 
   /* Text */
   --text-default: #586e75;
+  --text-web-default: #586e75;
   --text-secondary: #586e7594;
   --text-muted: #586e7540;
   --text-positive: var(--positive);
@@ -1483,6 +1498,7 @@ Solarized Light (light) and Solarized Dark (dark).
 
   /* Text */
   --text-default: #93a1a1;
+  --text-web-default: #93a1a1;
   --text-secondary: #93a1a19e;
   --text-muted: #93a1a161;
   --text-positive: var(--positive);
@@ -1592,6 +1608,7 @@ Gruvbox Light (light) and Gruvbox Dark (medium) (dark).
 
   /* Text */
   --text-default: #3c3836;
+  --text-web-default: #3c3836;
   --text-secondary: #3c383694;
   --text-muted: #3c383640;
   --text-positive: var(--positive);
@@ -1702,6 +1719,7 @@ Gruvbox Light (light) and Gruvbox Dark (medium) (dark).
 
   /* Text */
   --text-default: #ebdbb2;
+  --text-web-default: #ebdbb2;
   --text-secondary: #ebdbb29e;
   --text-muted: #ebdbb261;
   --text-positive: var(--positive);

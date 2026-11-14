@@ -27,6 +27,7 @@ You can also place these files on any static host. Keep `index.html`, `styles.cs
 - Edit the CSS variables in the **Live CSS editor** to preview changes immediately, then use **Copy CSS** to save them.
 - To change the starting theme for everyone, edit the `:root` and `.dark` rules in the `#live-theme` style and `#theme-css` textarea in `index.html` together. The textarea contains the editor's reset value.
 - The surface tokens have three layers: `--surface` for pages and panels, `--surface-secondary` for subtle fills, and `--surface-backdrop` for the native platform's page backdrop behind workspace panel gaps. The playground itself never reads `--surface-backdrop`; the token ships for the desktop platform.
+- `--text-default` is for the main platform and `--text-web-default` is for the website. The **Platform / Website** switch in the header points `--text-default` at the website value so you can preview landing-page text and icons.
 - `styles.css` contains the compiled utility styles and component rules from the previous Tailwind setup. It is committed, so running the site needs no build step. Edit this file directly when changing component styles or adding utility classes.
 - `app.js` handles tabs, the light/dark toggle, editor, form, icons, dashboard navigation, order book, and trading panel. `brand-checks.js` validates the included brand assets.
 

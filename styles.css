@@ -478,3 +478,7 @@
 @media (max-width: 39.98rem) {
   .theme-picker select { max-width: 8rem; text-overflow: ellipsis; }
 }
+
+/* Website mode: landing pages read the brighter --text-web-default. Icons use
+   currentColor, so they follow the text colour in both modes. */
+html[data-token-target="web"] { --text-default: var(--text-web-default); }

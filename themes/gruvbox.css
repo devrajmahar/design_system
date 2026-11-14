@@ -14,6 +14,7 @@
 
   /* Text */
   --text-default: #3c3836;
+  --text-web-default: #3c3836;
   --text-secondary: #3c383694;
   --text-muted: #3c383640;
   --text-positive: var(--positive);
@@ -124,6 +125,7 @@
 
   /* Text */
   --text-default: #ebdbb2;
+  --text-web-default: #ebdbb2;
   --text-secondary: #ebdbb29e;
   --text-muted: #ebdbb261;
   --text-positive: var(--positive);

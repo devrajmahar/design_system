@@ -420,3 +420,18 @@ const savedPreset = localStorage.getItem(PRESET_KEY);
 if (presetSelect && savedPreset && savedPreset !== 'default' && $(`option[value="${CSS.escape(savedPreset)}"]`, presetSelect)) {
   loadPreset(savedPreset).catch(error => console.error(`Theme preset "${savedPreset}" could not load: ${error.message}`));
 }
+
+// Token target: Platform (trading terminal) or Website (landing pages).
+const targetSelect = $('#token-target');
+const TARGET_KEY = 'theme-studio-target';
+function applyTarget(target) {
+  if (target === 'web') document.documentElement.dataset.tokenTarget = 'web';
+  else delete document.documentElement.dataset.tokenTarget;
+  if (targetSelect) targetSelect.value = target === 'web' ? 'web' : 'platform';
+  refreshTokenValues();
+}
+targetSelect?.addEventListener('change', () => {
+  localStorage.setItem(TARGET_KEY, targetSelect.value);
+  applyTarget(targetSelect.value);
+});
+applyTarget(localStorage.getItem(TARGET_KEY));
