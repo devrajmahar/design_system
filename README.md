@@ -33,11 +33,11 @@ You can also place these files on any static host. Keep `index.html`, `styles.cs
 
 ## Theme presets
 
-The **Theme** picker in the header swaps the whole token set. The current Aeris theme stays the default. Each preset is a file in `themes/` with the same `:root` (light) and `.dark` (dark) token blocks as the default, so the light/dark toggle still works:
+The **Theme** picker in the header swaps the whole token set. High Contrast (pure black dark mode) stays the default. Each preset is a file in `themes/` with the same `:root` (light) and `.dark` (dark) token blocks as the default, so the light/dark toggle still works:
 
 | Preset | File | Light / dark variants |
 | --- | --- | --- |
-| Basic | `themes/basic.css` | Light / Soft dark (`#1a1a1a`, no pure black) |
+| Dark | `themes/dark.css` | Light / Soft dark (`#1a1a1a`, no pure black) |
 | Tokyo Night | `themes/tokyo-night.css` | Day / Night |
 | Catppuccin | `themes/catppuccin.css` | Latte / Mocha |
 | GitHub | `themes/github.css` | Light / Dark |

@@ -1,4 +1,4 @@
-/* Basic theme preset. Aeris colours on a soft #1a1a1a dark surface instead of pure black,
+/* Dark theme preset. High Contrast colours on a soft #1a1a1a dark surface instead of pure black,
    for people who see halation on pure black. Same tokens as the default theme; only the values differ. */
 :root {
   /* Surfaces */

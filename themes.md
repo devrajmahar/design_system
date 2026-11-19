@@ -1,31 +1,31 @@
 # Theme presets
 
-Every Theme Studio theme in one place: the default Aeris theme plus eight presets, each with a light and a dark version. Every block has the same tokens, in the same order and with the same comments, as the Aeris theme.
+Every Theme Studio theme in one place: the default High Contrast theme plus eight presets, each with a light and a dark version. Every block has the same tokens, in the same order and with the same comments, as the High Contrast theme.
 
 The surfaces come in three layers: `--surface` for pages and panels, `--surface-secondary` for subtle fills, and `--surface-backdrop` for the page backdrop that shows through the gaps between workspace panels. The backdrop belongs to the native desktop platform: web pages use `--surface` as their page background and never read `--surface-backdrop`.
 
 ## How to use
 
-1. Copy the CSS blocks below into one stylesheet, **in the order shown**. Aeris comes first because it is the fallback when no preset is selected.
-2. Pick a theme with `data-theme` on `<html>`. Leave it off for Aeris.
+1. Copy the CSS blocks below into one stylesheet, **in the order shown**. High Contrast comes first because it is the fallback when no preset is selected.
+2. Pick a theme with `data-theme` on `<html>`. Leave it off for High Contrast.
 3. Turn dark mode on with the `dark` class on the same `<html>` element.
 
 ```html
-<html>                                        <!-- Aeris, light -->
-<html class="dark">                           <!-- Aeris, dark -->
+<html>                                        <!-- High Contrast, light -->
+<html class="dark">                           <!-- High Contrast, dark -->
 <html data-theme="tokyo-night">               <!-- Tokyo Night, light -->
 <html data-theme="tokyo-night" class="dark">  <!-- Tokyo Night, dark -->
 ```
 
 ```js
 document.documentElement.dataset.theme = 'catppuccin'; // switch preset
-delete document.documentElement.dataset.theme;          // back to Aeris
+delete document.documentElement.dataset.theme;          // back to High Contrast
 document.documentElement.classList.toggle('dark');      // light / dark
 ```
 
 Components pick the colours up through the variables, for example `background: var(--surface)`, `color: var(--text-default)` or `background: var(--primary)`.
 
-`--text-default` is for the main platform (the trading terminal). `--text-web-default` is for the website and landing pages. In Aeris dark and Basic dark it is a brighter `#ededed` instead of `#c1c1c1`; in every other block it matches `--text-default`. Icons use `currentColor`, so an icon takes the same colour as the text it sits in. `--text-secondary` and `--text-muted` are shared by both.
+`--text-default` is for the main platform (the trading terminal). `--text-web-default` is for the website and landing pages. In the dark mode of High Contrast and Dark it is a brighter `#ededed` instead of `#c1c1c1`; in every other block it matches `--text-default`. Icons use `currentColor`, so an icon takes the same colour as the text it sits in. `--text-secondary` and `--text-muted` are shared by both.
 
 Floating layers (menus, dialogs, tooltips) sit on `--surface-secondary` with a 1px `--border-secondary` edge in every theme.
 
@@ -33,7 +33,7 @@ Floating layers (menus, dialogs, tooltips) sit on `--surface-secondary` with a 1
 
 | Theme | `data-theme` | Light | Dark |
 | --- | --- | --- | --- |
-| [Aeris (default)](#1-aeris-default) | none | Light | Pure black |
+| [High Contrast (default)](#1-high-contrast-default) | none | Light | Pure black |
 | [Tokyo Night](#2-tokyo-night) | `tokyo-night` | Day | Night |
 | [Catppuccin](#3-catppuccin) | `catppuccin` | Latte | Mocha |
 | [GitHub](#4-github) | `github` | GitHub Light | GitHub Dark |
@@ -41,9 +41,9 @@ Floating layers (menus, dialogs, tooltips) sit on `--surface-secondary` with a 1
 | [Dracula](#6-dracula) | `dracula` | Alucard | Dracula |
 | [Solarized](#7-solarized) | `solarized` | Solarized Light | Solarized Dark |
 | [Gruvbox](#8-gruvbox) | `gruvbox` | Gruvbox Light | Gruvbox Dark (medium) |
-| [Basic](#9-basic) | `basic` | Light | Soft dark (`#1a1a1a`) |
+| [Dark](#9-dark) | `dark` | Light | Soft dark (`#1a1a1a`) |
 
-## 1. Aeris (default)
+## 1. High Contrast (default)
 
 The default theme. It applies whenever no `data-theme` is set. Dark mode uses a pure black `#000000` surface with a `#171717` secondary surface and solid `#2c2c2c` / `#404040` borders. Light mode uses a strong `--border-secondary` and hover / active fills. Menus, dialogs and tooltips sit on `--surface-secondary` with a `--border-secondary` edge, like every preset.
 
@@ -1811,12 +1811,12 @@ Gruvbox Light (light) and Gruvbox Dark (medium) (dark).
 }
 ```
 
-## 9. Basic
+## 9. Dark
 
-Aeris colours with a soft `#1a1a1a` dark surface, `#292929` secondary surface and `#c1c1c1` text instead of pure black, for people who see halation on pure black. Light mode matches Aeris light.
+High Contrast colours with a soft `#1a1a1a` dark surface, `#292929` secondary surface and `#c1c1c1` text instead of pure black, for people who see halation on pure black. Light mode matches High Contrast light.
 
 ```css
-[data-theme="basic"] {
+[data-theme="dark"] {
   /* Surfaces */
   --surface: #ffffff;
   --surface-secondary: #fafafa;
@@ -1927,7 +1927,7 @@ Aeris colours with a soft `#1a1a1a` dark surface, `#292929` secondary surface an
   --sell-bubble: color-mix(in srgb, #f23645 35%, transparent);
 }
 
-[data-theme="basic"].dark {
+[data-theme="dark"].dark {
   /* Surfaces */
   --surface: #1a1a1a;
   --surface-secondary: #292929;
