@@ -41,7 +41,7 @@ Floating layers (menus, dialogs, tooltips) sit on `--surface-secondary` with a 1
 | [Dracula](#6-dracula) | `dracula` | Alucard | Dracula |
 | [Solarized](#7-solarized) | `solarized` | Solarized Light | Solarized Dark |
 | [Gruvbox](#8-gruvbox) | `gruvbox` | Gruvbox Light | Gruvbox Dark (medium) |
-| [Dark](#9-dark) | `dark` | Light | Soft dark (`#0a0a0a`) |
+| [Dark](#9-dark) | `dark` | Light | Near-black (`#0a0a0a`) |
 
 ## 1. High Contrast (default)
 
@@ -1813,7 +1813,7 @@ Gruvbox Light (light) and Gruvbox Dark (medium) (dark).
 
 ## 9. Dark
 
-High Contrast colours with a soft `#0a0a0a` dark surface, `#292929` secondary surface and `#c1c1c1` text instead of pure black, for people who see halation on pure black. Light mode matches High Contrast light.
+Dark mode uses a near-black `#0a0a0a` surface instead of High Contrast's pure black `#000000`, with a `#292929` secondary surface, a `#262626` backdrop and solid `#404040` / `#4c4c4c` borders. The lifted surface and lighter borders give slightly lower contrast, for people who see halation on pure black. Light mode matches High Contrast light.
 
 ```css
 [data-theme="dark"] {

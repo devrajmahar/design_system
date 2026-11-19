@@ -1,5 +1,5 @@
-/* Dark theme preset. High Contrast colours on a soft #0a0a0a dark surface instead of pure black,
-   for people who see halation on pure black. Same tokens as the default theme; only the values differ. */
+/* Dark theme preset. High Contrast colours on a near-black #0a0a0a dark surface instead of pure black,
+   with lighter layers and borders for slightly lower contrast. Same tokens as the default theme; only the values differ. */
 :root {
   /* Surfaces */
   --surface: #ffffff;
