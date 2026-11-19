@@ -41,11 +41,11 @@ Floating layers (menus, dialogs, tooltips) sit on `--surface-secondary` with a 1
 | [Dracula](#6-dracula) | `dracula` | Alucard | Dracula |
 | [Solarized](#7-solarized) | `solarized` | Solarized Light | Solarized Dark |
 | [Gruvbox](#8-gruvbox) | `gruvbox` | Gruvbox Light | Gruvbox Dark (medium) |
-| [Dark](#9-dark) | `dark` | Light | Soft dark (`#1a1a1a`) |
+| [Dark](#9-dark) | `dark` | Light | Soft dark (`#0a0a0a`) |
 
 ## 1. High Contrast (default)
 
-The default theme. It applies whenever no `data-theme` is set. Dark mode uses a pure black `#000000` surface with a `#171717` secondary surface and solid `#2c2c2c` / `#404040` borders. Light mode uses a strong `--border-secondary` and hover / active fills. Menus, dialogs and tooltips sit on `--surface-secondary` with a `--border-secondary` edge, like every preset.
+The default theme. It applies whenever no `data-theme` is set. Dark mode uses a pure black `#000000` surface with a `#232324` secondary surface and solid `#3c3c3c` / `#404040` borders. Light mode uses a strong `--border-secondary` and hover / active fills. Menus, dialogs and tooltips sit on `--surface-secondary` with a `--border-secondary` edge, like every preset.
 
 ```css
 :root {
@@ -162,11 +162,11 @@ The default theme. It applies whenever no `data-theme` is set. Dark mode uses a 
 .dark {
   /* Surfaces */
   --surface: #000000;
-  --surface-secondary: #171717;
+  --surface-secondary: #232324;
   --surface-backdrop: #262626;
 
   /* Borders */
-  --border: #2c2c2c;
+  --border: #3c3c3c;
   --border-secondary: #404040;
   --border-subtle: #fafafa12;
   --border-width: 1px;
@@ -1813,7 +1813,7 @@ Gruvbox Light (light) and Gruvbox Dark (medium) (dark).
 
 ## 9. Dark
 
-High Contrast colours with a soft `#1a1a1a` dark surface, `#292929` secondary surface and `#c1c1c1` text instead of pure black, for people who see halation on pure black. Light mode matches High Contrast light.
+High Contrast colours with a soft `#0a0a0a` dark surface, `#292929` secondary surface and `#c1c1c1` text instead of pure black, for people who see halation on pure black. Light mode matches High Contrast light.
 
 ```css
 [data-theme="dark"] {
@@ -1929,7 +1929,7 @@ High Contrast colours with a soft `#1a1a1a` dark surface, `#292929` secondary su
 
 [data-theme="dark"].dark {
   /* Surfaces */
-  --surface: #1a1a1a;
+  --surface: #0a0a0a;
   --surface-secondary: #292929;
   --surface-backdrop: #262626;
 

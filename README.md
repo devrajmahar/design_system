@@ -37,7 +37,7 @@ The **Theme** picker in the header swaps the whole token set. High Contrast (pur
 
 | Preset | File | Light / dark variants |
 | --- | --- | --- |
-| Dark | `themes/dark.css` | Light / Soft dark (`#1a1a1a`, no pure black) |
+| Dark | `themes/dark.css` | Light / Soft dark (`#0a0a0a`, no pure black) |
 | Tokyo Night | `themes/tokyo-night.css` | Day / Night |
 | Catppuccin | `themes/catppuccin.css` | Latte / Mocha |
 | GitHub | `themes/github.css` | Light / Dark |

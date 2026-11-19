@@ -114,11 +114,11 @@
 .dark {
   /* Surfaces */
   --surface: #000000;
-  --surface-secondary: #171717;
+  --surface-secondary: #232324;
   --surface-backdrop: #262626;
 
   /* Borders */
-  --border: #2c2c2c;
+  --border: #3c3c3c;
   --border-secondary: #404040;
   --border-subtle: #fafafa12;
   --border-width: 1px;
