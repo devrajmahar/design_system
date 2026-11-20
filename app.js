@@ -47,6 +47,30 @@ tabs.forEach((tab, index) => {
   });
 });
 selectTab('Components');
+$$('#static-previews [role="tablist"]').forEach(tablist => {
+  const demoTabs = $$('[role="tab"]', tablist);
+  function chooseDemoTab(selected) {
+    demoTabs.forEach(tab => {
+      const active = tab === selected;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+  }
+  demoTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => chooseDemoTab(tab));
+    tab.addEventListener('keydown', event => {
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % demoTabs.length;
+      else if (event.key === 'ArrowLeft') next = (index - 1 + demoTabs.length) % demoTabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = demoTabs.length - 1;
+      else return;
+      event.preventDefault();
+      chooseDemoTab(demoTabs[next]);
+      demoTabs[next].focus();
+    });
+  });
+});
 $$('main > section button').filter(button => /^(Inspect tokens|Customize)$/.test(button.textContent.trim()))
   .forEach(button => button.addEventListener('click', () => $('#editor').scrollIntoView({ behavior: 'smooth' })));
 

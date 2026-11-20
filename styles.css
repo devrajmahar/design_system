@@ -484,3 +484,54 @@
 /* Website mode: landing pages read the brighter --text-web-default. Icons use
    currentColor, so they follow the text colour in both modes. */
 html[data-token-target="web"] { --text-default: var(--text-web-default); }
+
+/* Normal (track) tabs: a 60%-alpha --surface track with a 70%-alpha --border edge.
+   The active tab sits on --surface-secondary with a 70%-alpha --text-web-default border and --text-web-default text;
+   inactive tabs are transparent with --text-secondary text, brightening to --text-web-default on hover. */
+.ui-tabs-normal {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  max-width: 100%;
+  padding: 2px;
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  border-radius: var(--radius-large);
+  background-color: color-mix(in srgb, var(--surface) 60%, transparent);
+}
+.ui-tab-normal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-large);
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  white-space: nowrap;
+  outline: none;
+  transition: color 150ms, background-color 150ms, border-color 150ms;
+}
+.ui-tab-normal:hover:not([aria-selected="true"]),
+.ui-tab-normal:active:not([aria-selected="true"]) {
+  color: var(--text-web-default);
+}
+.ui-tab-normal[aria-selected="true"] {
+  border-color: color-mix(in srgb, var(--text-web-default) 70%, transparent);
+  background-color: var(--surface-secondary);
+  color: var(--text-web-default);
+}
+.ui-tab-normal:focus-visible {
+  outline: 2px solid var(--ring-primary);
+  outline-offset: 0;
+}
+
+/* On --surface-secondary in dark mode, --hover-bg and --active-bg lift above --surface-secondary
+   by the same 12% / 15% step that the flat dark tokens lift above --surface. */
+.dark :is(.ui-menu, .ui-button-secondary, .ticket-field, .ticket-select, [data-panel="Dashboard"] aside, .dark\:bg-surface-secondary) {
+  --hover-bg: color-mix(in srgb, #fafafa 12%, var(--surface-secondary));
+  --active-bg: color-mix(in srgb, #fafafa 15%, var(--surface-secondary));
+}
