@@ -259,7 +259,7 @@ The default theme. It applies whenever no `data-theme` is set. Dark mode uses a 
 
 ## 2. Normal
 
-Normal Dark uses a near-black `#0a0a0a` surface instead of High Contrast's pure black `#000000`, with a `#292929` secondary surface, a `#262626` backdrop and solid `#404040` / `#4c4c4c` borders. The lifted surface and lighter borders give slightly lower contrast, for people who see halation on pure black. Normal Light matches High Contrast Light.
+Normal Light uses softer `#d9d9d9` borders (`#f0f0f0` subtle) and lighter `#f2f2f2` / `#ebebeb` hover and active fills (`#f7f7f7` disabled) than High Contrast Light (`#cecece` borders, `#ececec` / `#e1e1e1` fills), keeping borders clearly distinct above hover and active states. Normal Dark uses a near-black `#0a0a0a` surface instead of High Contrast's pure black `#000000`, with a `#292929` secondary surface, a `#262626` backdrop and solid `#404040` / `#4c4c4c` borders.
 
 ```css
 [data-theme="normal"] {
@@ -269,9 +269,9 @@ Normal Dark uses a near-black `#0a0a0a` surface instead of High Contrast's pure 
   --surface-backdrop: #e5e5e5;
 
   /* Borders */
-  --border: #cecece;
-  --border-secondary: #cecece;
-  --border-subtle: #eeeeee;
+  --border: #d9d9d9;
+  --border-secondary: #d9d9d9;
+  --border-subtle: #f0f0f0;
   --border-width: 1px;
 
   /* Text */
@@ -285,9 +285,9 @@ Normal Dark uses a near-black `#0a0a0a` surface instead of High Contrast's pure 
   --text-warning: #ff6900;
 
   /* Interaction states — hover / selected fill, pressed fill, disabled fill. */
-  --hover-bg: #ececec;
-  --active-bg: #e1e1e1;
-  --disabled-bg: #f3f3f3;
+  --hover-bg: #f2f2f2;
+  --active-bg: #ebebeb;
+  --disabled-bg: #f7f7f7;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
   --positive: #089981;
@@ -323,7 +323,7 @@ Normal Dark uses a near-black `#0a0a0a` surface instead of High Contrast's pure 
   --button-fill-hover: #2e2e2e;
   --button-fill-active: #454545;
   --button-fill-foreground: #eeeeee;
-  --button-fill-subtle: #ececec;
+  --button-fill-subtle: #f2f2f2;
 
   /* Trade — dedicated buy / sell buttons. Hover and press darken the fill; no shadows. */
   --buy: var(--primary);

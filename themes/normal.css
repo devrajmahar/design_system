@@ -1,5 +1,6 @@
-/* Normal theme preset. High Contrast colours on a near-black #0a0a0a dark surface instead of pure black,
-   with lighter layers and borders for slightly lower contrast. Same tokens as the default theme; only the values differ. */
+/* Normal theme preset. Lower-contrast counterpart to High Contrast in both light and dark modes:
+   softer #d9d9d9 borders and #f2f2f2 / #ebebeb hover and active fills in Normal Light, and a near-black
+   #0a0a0a surface with lighter layers and borders in Normal Dark. */
 :root {
   /* Surfaces */
   --surface: #ffffff;
@@ -7,9 +8,9 @@
   --surface-backdrop: #e5e5e5;
 
   /* Borders */
-  --border: #cecece;
-  --border-secondary: #cecece;
-  --border-subtle: #eeeeee;
+  --border: #d9d9d9;
+  --border-secondary: #d9d9d9;
+  --border-subtle: #f0f0f0;
   --border-width: 1px;
 
   /* Text */
@@ -23,9 +24,9 @@
   --text-warning: #ff6900;
 
   /* Interaction states — hover / selected fill, pressed fill, disabled fill. */
-  --hover-bg: #ececec;
-  --active-bg: #e1e1e1;
-  --disabled-bg: #f3f3f3;
+  --hover-bg: #f2f2f2;
+  --active-bg: #ebebeb;
+  --disabled-bg: #f7f7f7;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
   --positive: #089981;
@@ -61,7 +62,7 @@
   --button-fill-hover: #2e2e2e;
   --button-fill-active: #454545;
   --button-fill-foreground: #eeeeee;
-  --button-fill-subtle: #ececec;
+  --button-fill-subtle: #f2f2f2;
 
   /* Trade — dedicated buy / sell buttons. Hover and press darken the fill; no shadows. */
   --buy: var(--primary);
