@@ -33,21 +33,15 @@ You can also place these files on any static host. Keep `index.html`, `styles.cs
 
 ## Theme presets
 
-The **Theme** picker in the header swaps the whole token set. High Contrast (pure black dark mode) stays the default. Each preset is a file in `themes/` with the same `:root` (light) and `.dark` (dark) token blocks as the default, so the light/dark toggle still works:
+The **Theme** picker in the header swaps between the two theme sets. High Contrast (pure black dark mode) stays the default. Each preset is a file in `themes/` with the same `:root` (light) and `.dark` (dark) token blocks as the default, so the light/dark toggle still works:
 
-| Preset | File | Light / dark variants |
+| Theme | File | Light / dark variants |
 | --- | --- | --- |
-| Dark | `themes/dark.css` | Light / Near-black (`#0a0a0a`) |
-| Tokyo Night | `themes/tokyo-night.css` | Day / Night |
-| Catppuccin | `themes/catppuccin.css` | Latte / Mocha |
-| GitHub | `themes/github.css` | Light / Dark |
-| One Dark / Light | `themes/one.css` | Atom One Light / One Dark Pro |
-| Dracula | `themes/dracula.css` | Alucard / Dracula |
-| Solarized | `themes/solarized.css` | Light / Dark |
-| Gruvbox | `themes/gruvbox.css` | Light / Dark (medium) |
+| High Contrast (default) | `index.html` (`#live-theme`) | High Contrast Light / High Contrast Dark (`#000000`) |
+| Normal | `themes/normal.css` | Normal Light / Normal Dark (`#0a0a0a`) |
 
 Choosing a preset loads its file into the Live CSS editor, so you can tweak it there and **Copy CSS** exports it. **Reset** returns to the selected preset. The choice is saved in the browser. Presets are fetched, so they need the local HTTP server, like the Brand checks.
 
-To add a preset, copy one of the files in `themes/`, change the values, and add an `<option>` with the file name (without `.css`) to the `#theme-preset` select in `index.html`.
+To add a preset, copy `themes/normal.css`, change the values, and add an `<option>` with the file name (without `.css`) to the `#theme-preset` select in `index.html`.
 
 Brand asset guidance is in [brand-assets/usage.md](brand-assets/usage.md).
