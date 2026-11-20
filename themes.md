@@ -139,7 +139,7 @@ The default theme. It applies whenever no `data-theme` is set. Dark mode uses a 
 
   /* Radius */
   --radius-small: 4px;
-  --radius-default: 8px;
+  --radius-default: 6px;
   --radius-large: 999px;
 
   /* Chart */
@@ -358,7 +358,7 @@ Normal Light uses softer `#d9d9d9` borders (`#f0f0f0` subtle) and lighter `#f2f2
 
   /* Radius */
   --radius-small: 4px;
-  --radius-default: 8px;
+  --radius-default: 6px;
   --radius-large: 999px;
 
   /* Chart */
