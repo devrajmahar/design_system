@@ -212,7 +212,7 @@ if (dashboard) {
   }));
 }
 
-const book = $$('#static-previews h3').find(el => el.textContent === 'Order book')?.closest('.rounded-medium');
+const book = $$('#static-previews h3').find(el => el.textContent === 'Order book')?.closest('.rounded-default');
 if (book) {
   const liveButton = $('button[aria-pressed]', book);
   let live = true;
@@ -349,7 +349,7 @@ async function runChecks() {
     for (const group of [...new Set(checks.map(check => check.group))]) {
       const section = document.createElement('div');
       const title = document.createElement('p');
-      title.className = 'mb-2 text-xs font-semibold uppercase tracking-wider text-text-secondary';
+      title.className = 'mb-2 text-xs font-medium uppercase tracking-wider text-text-secondary';
       title.textContent = group;
       const list = document.createElement('ul');
       list.className = 'divide-y rounded-default border';
@@ -357,7 +357,7 @@ async function runChecks() {
         const item = document.createElement('li');
         item.className = 'flex gap-2.5 px-3 py-2';
         const mark = document.createElement('span');
-        mark.className = `inline-grid size-4 shrink-0 place-items-center rounded-full text-[10px] font-bold text-white ${check.ok ? 'bg-positive' : 'bg-danger'}`;
+        mark.className = `inline-grid size-4 shrink-0 place-items-center rounded-full text-[10px] font-medium text-white ${check.ok ? 'bg-positive' : 'bg-danger'}`;
         mark.textContent = check.ok ? '✓' : '✕';
         mark.setAttribute('aria-label', check.ok ? 'pass' : 'fail');
         const details = document.createElement('div');
