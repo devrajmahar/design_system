@@ -26,6 +26,8 @@
   /* Interaction states — hover / selected fill, pressed fill, disabled fill. */
   --hover-bg: #f2f2f2;
   --active-bg: #ebebeb;
+  --hover-bg-secondary: #ededed;
+  --active-bg-secondary: #e6e6e6;
   --disabled-bg: #f7f7f7;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
@@ -135,6 +137,8 @@
   /* Interaction states */
   --hover-bg: #272727;
   --active-bg: #2e2e2e;
+  --hover-bg-secondary: #424242;
+  --active-bg-secondary: #484848;
   --disabled-bg: #161616;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */

@@ -27,7 +27,7 @@ Components pick the colours up through the variables, for example `background: v
 
 `--text-default` is for the main platform (the trading terminal). `--text-web-default` is for the website and landing pages: in dark mode it is a brighter `#ededed` instead of `#c1c1c1`, and in light mode it matches `--text-default`. Icons use `currentColor`, so an icon takes the same colour as the text it sits in. `--text-secondary` and `--text-muted` are shared by both.
 
-Floating layers (menus, dialogs, tooltips) sit on `--surface-secondary` with a 1px `--border-secondary` edge in every theme.
+Floating layers (menus, dialogs, tooltips) and secondary controls sit on `--surface-secondary` with a 1px `--border-secondary` edge in every theme. Use `--hover-bg-secondary` and `--active-bg-secondary` for hover and active states on `--surface-secondary` (in dark mode `--hover-bg` is flattened against `--surface`, which is darker than `--surface-secondary`).
 
 ## Themes
 
@@ -66,6 +66,8 @@ The default theme. It applies whenever no `data-theme` is set. Dark mode uses a 
   /* Interaction states — hover / selected fill, pressed fill, disabled fill. */
   --hover-bg: #ececec;
   --active-bg: #e1e1e1;
+  --hover-bg-secondary: #e7e7e7;
+  --active-bg-secondary: #dcdcdc;
   --disabled-bg: #f3f3f3;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
@@ -175,6 +177,8 @@ The default theme. It applies whenever no `data-theme` is set. Dark mode uses a 
   /* Interaction states */
   --hover-bg: #1e1e1e;
   --active-bg: #252525;
+  --hover-bg-secondary: #3d3d3e;
+  --active-bg-secondary: #434344;
   --disabled-bg: #0d0d0d;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
@@ -285,6 +289,8 @@ Normal Light uses softer `#d9d9d9` borders (`#f0f0f0` subtle) and lighter `#f2f2
   /* Interaction states — hover / selected fill, pressed fill, disabled fill. */
   --hover-bg: #f2f2f2;
   --active-bg: #ebebeb;
+  --hover-bg-secondary: #ededed;
+  --active-bg-secondary: #e6e6e6;
   --disabled-bg: #f7f7f7;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
@@ -394,6 +400,8 @@ Normal Light uses softer `#d9d9d9` borders (`#f0f0f0` subtle) and lighter `#f2f2
   /* Interaction states */
   --hover-bg: #272727;
   --active-bg: #2e2e2e;
+  --hover-bg-secondary: #424242;
+  --active-bg-secondary: #484848;
   --disabled-bg: #161616;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */

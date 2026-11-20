@@ -26,6 +26,8 @@
   /* Interaction states — hover / selected fill, pressed fill, disabled fill. */
   --hover-bg: #ececec;
   --active-bg: #e1e1e1;
+  --hover-bg-secondary: #e7e7e7;
+  --active-bg-secondary: #dcdcdc;
   --disabled-bg: #f3f3f3;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
@@ -135,6 +137,8 @@
   /* Interaction states */
   --hover-bg: #1e1e1e;
   --active-bg: #252525;
+  --hover-bg-secondary: #3d3d3e;
+  --active-bg-secondary: #434344;
   --disabled-bg: #0d0d0d;
 
   /* Status — gains / losses, success / failure. Shared with the main platform. */
@@ -527,9 +531,9 @@ html[data-token-target="web"] { --text-default: var(--text-web-default); }
   outline-offset: 0;
 }
 
-/* On --surface-secondary in dark mode, --hover-bg and --active-bg lift above --surface-secondary
-   by the same 12% / 15% step that the flat dark tokens lift above --surface. */
-.dark :is(.ui-menu, .ui-button-secondary, .ticket-field, .ticket-select, [data-panel="Dashboard"] aside, .dark\:bg-surface-secondary) {
-  --hover-bg: color-mix(in srgb, #fafafa 12%, var(--surface-secondary));
-  --active-bg: color-mix(in srgb, #fafafa 15%, var(--surface-secondary));
+/* On --surface-secondary, point --hover-bg and --active-bg at the flat secondary interaction tokens. */
+:is(.ui-menu, .ui-button-secondary, .ticket-field, .ticket-select, [data-panel="Dashboard"] aside),
+.dark .dark\:bg-surface-secondary {
+  --hover-bg: var(--hover-bg-secondary);
+  --active-bg: var(--active-bg-secondary);
 }
